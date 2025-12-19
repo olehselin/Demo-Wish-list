@@ -5,13 +5,14 @@ interface RequestOptions extends RequestInit {
 }
 
 class ApiError extends Error {
-  constructor(
-    message: string,
-    public status?: number,
-    public response?: Response
-  ) {
+  status?: number;
+  response?: Response;
+
+  constructor(message: string, status?: number, response?: Response) {
     super(message);
     this.name = 'ApiError';
+    this.status = status;
+    this.response = response;
   }
 }
 
