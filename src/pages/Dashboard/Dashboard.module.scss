@@ -30,7 +30,7 @@
   border-radius: 12px;
   flex-wrap: wrap;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e5e7eb;
+  border: 1.5px solid #e5e7eb;
 }
 
 .filterGroup {
@@ -62,14 +62,14 @@
 }
 
 .filterSelect:hover {
-  border-color: #4a90e2;
-  background-color: #f8f9fa;
+  border-color: #9ca3af;
+  background-color: #f9fafb;
 }
 
 .filterSelect:focus {
   outline: none;
-  border-color: #4a90e2;
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+  border-color: #9ca3af;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
 }
 

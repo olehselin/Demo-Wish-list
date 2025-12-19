@@ -15,18 +15,24 @@
 }
 
 .snackbarSuccess {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
+  background-color: #ffffff;
+  color: #059669;
+  border: 1.5px solid #d1fae5;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.1);
 }
 
 .snackbarError {
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  color: white;
+  background-color: #ffffff;
+  color: #dc2626;
+  border: 1.5px solid #fee2e2;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.1);
 }
 
 .snackbarInfo {
-  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-  color: white;
+  background-color: #ffffff;
+  color: #1f2937;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .snackbarMessage {

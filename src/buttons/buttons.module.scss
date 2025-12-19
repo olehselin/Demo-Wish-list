@@ -2,7 +2,7 @@
 .cardButton {
   flex: 1;
   padding: clamp(0.625rem, 2vw, 0.75rem) clamp(0.875rem, 2vw, 1rem);
-  border: none;
+  border: 1.5px solid #e5e7eb;
   border-radius: 8px;
   cursor: pointer;
   font-size: clamp(0.875rem, 2vw, 0.9375rem);
@@ -14,39 +14,47 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  background-color: #ffffff;
+  color: #374151;
 }
 
 .cardButtonDetails {
-  background-color: #4a90e2;
-  color: white;
+  background-color: #ffffff;
+  color: #374151;
+  border-color: #e5e7eb;
 }
 
 .cardButtonDetails:hover {
-  background-color: #357abd;
+  background-color: #f9fafb;
+  border-color: #d1d5db;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .cardButtonUpdate {
-  background-color: #f59e0b;
-  color: white;
+  background-color: #ffffff;
+  color: #374151;
+  border-color: #e5e7eb;
 }
 
 .cardButtonUpdate:hover {
-  background-color: #d97706;
+  background-color: #f9fafb;
+  border-color: #d1d5db;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .cardButtonDelete {
-  background-color: #ef4444;
-  color: white;
+  background-color: #ffffff;
+  color: #dc2626;
+  border-color: #fee2e2;
 }
 
 .cardButtonDelete:hover {
-  background-color: #dc2626;
+  background-color: #fef2f2;
+  border-color: #fecaca;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
 }
 
 .cardButton:active {
@@ -62,29 +70,32 @@
 /* Action Buttons */
 .actionButton {
   padding: clamp(0.875rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem);
-  border: none;
+  border: 1.5px solid #e5e7eb;
   border-radius: 8px;
   font-size: clamp(1rem, 2.5vw, 1.1rem);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   letter-spacing: 0.3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   min-height: 44px;
   font-family: inherit;
+  background-color: #ffffff;
+  color: #374151;
 }
 
 .updateButton,
 .actionButtonUpdateButton {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  color: white;
+  background-color: #ffffff;
+  color: #374151;
+  border-color: #e5e7eb;
 }
 
 .updateButton:hover,
 .actionButtonUpdateButton:hover {
-  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  background-color: #f9fafb;
+  border-color: #d1d5db;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .updateButton:active,
@@ -94,15 +105,17 @@
 
 .deleteButton,
 .actionButtonDeleteButton {
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  color: white;
+  background-color: #ffffff;
+  color: #dc2626;
+  border-color: #fee2e2;
 }
 
 .deleteButton:hover,
 .actionButtonDeleteButton:hover {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  background-color: #fef2f2;
+  border-color: #fecaca;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.1);
 }
 
 .deleteButton:active,
@@ -112,15 +125,17 @@
 
 .detailsButton,
 .actionButtonDetailsButton {
-  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-  color: white;
+  background-color: #ffffff;
+  color: #374151;
+  border-color: #e5e7eb;
 }
 
 .detailsButton:hover,
 .actionButtonDetailsButton:hover {
-  background: linear-gradient(135deg, #357abd 0%, #2c6fa3 100%);
+  background-color: #f9fafb;
+  border-color: #d1d5db;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .detailsButton:active,
@@ -134,24 +149,24 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem clamp(1rem, 3vw, 1.5rem);
-  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-  color: white;
-  border: none;
+  background-color: #ffffff;
+  color: #374151;
+  border: 1.5px solid #e5e7eb;
   border-radius: 8px;
   cursor: pointer;
   font-size: clamp(0.9375rem, 2vw, 1rem);
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.2);
   min-height: 44px;
   font-family: inherit;
 }
 
 .backButton:hover {
-  background: linear-gradient(135deg, #357abd 0%, #2c6fa3 100%);
+  background-color: #f9fafb;
+  border-color: #d1d5db;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .backButton:active {
@@ -164,24 +179,24 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem clamp(1rem, 3vw, 1.5rem);
-  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-  color: white;
-  border: none;
+  background-color: #ffffff;
+  color: #374151;
+  border: 1.5px solid #e5e7eb;
   border-radius: 8px;
   cursor: pointer;
   font-size: clamp(0.9375rem, 2vw, 1rem);
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.2);
   min-height: 44px;
   font-family: inherit;
 }
 
 .backLink:hover {
-  background: linear-gradient(135deg, #357abd 0%, #2c6fa3 100%);
+  background-color: #f9fafb;
+  border-color: #d1d5db;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .backLink:active {
@@ -220,14 +235,15 @@
 }
 
 .btnSubmit {
-  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  background-color: #1f2937;
   color: white;
-  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.2);
+  border: 1.5px solid #1f2937;
 }
 
 .btnSubmit:hover {
-  background: linear-gradient(135deg, #357abd 0%, #2c6fa3 100%);
-  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+  background-color: #111827;
+  border-color: #111827;
+  box-shadow: 0 4px 12px rgba(31, 41, 55, 0.2);
   transform: translateY(-1px);
 }
 
@@ -238,23 +254,23 @@
 /* Delete Button */
 .btnDelete {
   padding: 0.75rem clamp(1.25rem, 3vw, 1.5rem);
-  border: none;
+  border: 1.5px solid #fee2e2;
   border-radius: 8px;
   cursor: pointer;
   font-size: clamp(0.9375rem, 2vw, 1rem);
   font-weight: 500;
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  color: white;
+  background-color: #ffffff;
+  color: #dc2626;
   transition: all 0.2s ease;
   min-height: 44px;
   min-width: 100px;
   font-family: inherit;
-  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
 }
 
 .btnDelete:hover {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+  background-color: #fef2f2;
+  border-color: #fecaca;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.1);
   transform: translateY(-1px);
 }
 
@@ -268,9 +284,9 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem clamp(1rem, 3vw, 1.5rem);
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background-color: #1f2937;
   color: white;
-  border: none;
+  border: 1.5px solid #1f2937;
   border-radius: 8px;
   cursor: pointer;
   font-size: clamp(0.9375rem, 2vw, 1rem);
@@ -278,12 +294,12 @@
   transition: all 0.2s ease;
   margin-left: auto;
   min-height: 44px;
-  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
 }
 
 .addWishButton:hover {
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
-  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+  background-color: #111827;
+  border-color: #111827;
+  box-shadow: 0 4px 12px rgba(31, 41, 55, 0.2);
   transform: translateY(-1px);
 }
 
@@ -300,9 +316,9 @@
 /* Pagination Buttons */
 .paginationButton {
   padding: 0.625rem clamp(0.875rem, 2vw, 1rem);
-  background-color: #4a90e2;
-  color: white;
-  border: none;
+  background-color: #ffffff;
+  color: #374151;
+  border: 1.5px solid #e5e7eb;
   border-radius: 8px;
   cursor: pointer;
   font-size: clamp(0.875rem, 2vw, 0.9375rem);
@@ -313,9 +329,10 @@
 }
 
 .paginationButton:hover:not(:disabled) {
-  background-color: #357abd;
+  background-color: #f9fafb;
+  border-color: #d1d5db;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .paginationButton:active:not(:disabled) {
@@ -353,9 +370,9 @@
 }
 
 .paginationNumberActive {
-  background-color: #4a90e2;
+  background-color: #1f2937;
   color: white;
-  border-color: #4a90e2;
+  border-color: #1f2937;
   font-weight: 600;
 }
 
@@ -409,15 +426,15 @@
 
 .snackbarClose:hover {
   opacity: 1;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #f3f4f6;
 }
 
 .snackbarClose:active {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: #e5e7eb;
 }
 
 .snackbarClose:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline: 2px solid #d1d5db;
   outline-offset: 2px;
 }
 
