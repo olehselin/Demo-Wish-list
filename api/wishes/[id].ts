@@ -24,9 +24,33 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  const { id } = req.query;
+  // Extract ID from query params or URL path
+  // Vercel may not always pass id through req.query for dynamic routes
+  let id: string | undefined = req.query.id as string | undefined;
+  
+  // If ID is not in query, try to extract from URL
+  if (!id && req.url) {
+    const match = req.url.match(/\/wishes\/([^/?]+)/);
+    if (match && match[1]) {
+      id = match[1];
+    }
+  }
+
+  // Also try to get from query params with different keys
+  if (!id) {
+    const queryId = req.query.id || req.query['[id]'] || (req.query as any).id;
+    if (queryId && typeof queryId === 'string') {
+      id = queryId;
+    }
+  }
 
   if (!id || typeof id !== 'string') {
+    console.error('Invalid wish ID:', { 
+      id, 
+      query: req.query, 
+      url: req.url,
+      queryKeys: Object.keys(req.query)
+    });
     res.status(400).json({ error: 'Invalid wish ID' });
     return;
   }

@@ -44,7 +44,7 @@ const buildUrl = (
 
   // Use API_BASE_URL as base
   // API_BASE_URL already includes /api, so use it directly
-  const url = new URL(endpoint, API_BASE_URL);
+  const url = new URL(`${API_BASE_URL}${endpoint}`);
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
       url.searchParams.append(key, value);

@@ -15,14 +15,6 @@
       "description": "Premium headphones with active noise cancellation, excellent sound quality and long battery life. Perfect for travel and daily use.",
       "price": 399.99,
       "createdAt": "2025-01-02T00:00:00.000Z"
-    },
-    {
-      "id": "c91b",
-      "image": "https://i.ytimg.com/vi/CGWLl2f_mkk/maxresdefault.jpg",
-      "title": "Test",
-      "description": "Test",
-      "price": 12345,
-      "createdAt": "2025-12-19T12:00:34.178Z"
     }
   ]
 }
