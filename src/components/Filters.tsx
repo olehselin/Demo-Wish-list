@@ -1,4 +1,9 @@
-import { type DateFilter, type PriceFilter, DATE_FILTERS, PRICE_FILTERS } from '../constants';
+import {
+  type DateFilter,
+  type PriceFilter,
+  DATE_FILTERS,
+  PRICE_FILTERS,
+} from '../constants';
 import { AddWishButton } from '../buttons';
 import styles from '../pages/Dashboard/Dashboard.module.scss';
 
@@ -24,7 +29,7 @@ export const Filters = ({
         <select
           id="date-filter"
           value={dateFilter}
-          onChange={(e) => onDateFilterChange(e.target.value as DateFilter)}
+          onChange={e => onDateFilterChange(e.target.value as DateFilter)}
           className={styles.filterSelect}
         >
           <option value={DATE_FILTERS.NEWEST}>Newest</option>
@@ -37,7 +42,7 @@ export const Filters = ({
         <select
           id="price-filter"
           value={priceFilter}
-          onChange={(e) => onPriceFilterChange(e.target.value as PriceFilter)}
+          onChange={e => onPriceFilterChange(e.target.value as PriceFilter)}
           className={styles.filterSelect}
         >
           <option value={PRICE_FILTERS.HIGH_TO_LOW}>Price High to Low</option>
@@ -52,4 +57,3 @@ export const Filters = ({
     </div>
   );
 };
-

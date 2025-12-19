@@ -1,6 +1,6 @@
-import styles from "./DeleteConfirmationModal.module.scss";
-import { Modal } from "./Modal";
-import { FormButton, DeleteButton } from "../buttons";
+import styles from './DeleteConfirmationModal.module.scss';
+import { Modal } from './Modal';
+import { FormButton, DeleteButton } from '../buttons';
 
 interface DeleteConfirmationModalProps {
   isOpen: boolean;
@@ -21,18 +21,23 @@ export const DeleteConfirmationModal = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Confirm Delete" className={styles.deleteModal}>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title="Confirm Delete"
+      className={styles.deleteModal}
+    >
       <div className={styles.deleteModalBody}>
-        <p>Are you sure you want to delete <strong>"{wishTitle}"</strong>?</p>
+        <p>
+          Are you sure you want to delete <strong>"{wishTitle}"</strong>?
+        </p>
         <p className={styles.deleteWarning}>This action cannot be undone.</p>
       </div>
       <div className={styles.formActions}>
         <FormButton type="button" variant="cancel" onClick={onClose}>
           No
         </FormButton>
-        <DeleteButton onClick={handleConfirm}>
-          Yes, Delete
-        </DeleteButton>
+        <DeleteButton onClick={handleConfirm}>Yes, Delete</DeleteButton>
       </div>
     </Modal>
   );

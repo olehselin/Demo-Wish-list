@@ -1,5 +1,10 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getWishById, updateWish, patchWish, deleteWish } from '../../lib/wish-handler';
+import {
+  getWishById,
+  updateWish,
+  patchWish,
+  deleteWish,
+} from '../../lib/wish-handler';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Set CORS headers
@@ -31,33 +36,33 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
         res.status(200).json(wish);
         break;
-      
+
       case 'PUT':
         const updatedWish = await updateWish(id, req.body);
         res.status(200).json(updatedWish);
         break;
-      
+
       case 'PATCH':
         const patchedWish = await patchWish(id, req.body);
         res.status(200).json(patchedWish);
         break;
-      
+
       case 'DELETE':
         await deleteWish(id);
         res.status(204).end();
         break;
-      
+
       default:
         res.setHeader('Allow', ['GET', 'PUT', 'PATCH', 'DELETE']);
         res.status(405).json({ error: `Method ${req.method} not allowed` });
     }
   } catch (error) {
     console.error('API Error:', error);
-    const statusCode = error instanceof Error && error.message.includes('not found') ? 404 : 500;
-    res.status(statusCode).json({ 
+    const statusCode =
+      error instanceof Error && error.message.includes('not found') ? 404 : 500;
+    res.status(statusCode).json({
       error: 'Internal server error',
-      message: error instanceof Error ? error.message : 'Unknown error'
+      message: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 }
-

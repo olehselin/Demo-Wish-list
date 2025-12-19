@@ -18,7 +18,7 @@ interface UsePaginationReturn<T> {
   getPageNumbers: () => (number | string)[];
 }
 
-export const usePagination = <T,>({
+export const usePagination = <T>({
   items,
   itemsPerPage = PAGINATION.ITEMS_PER_PAGE,
 }: UsePaginationProps<T>): UsePaginationReturn<T> => {
@@ -92,6 +92,3 @@ export const usePagination = <T,>({
     getPageNumbers,
   };
 };
-
-
-

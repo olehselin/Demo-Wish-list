@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { type Wish } from "../services/api";
-import { useWishContext } from "../context/WishContext";
-import { WishForm, type WishFormData } from "./WishForm";
-import { createWishFromFormData } from "../utils/wishFormUtils";
-import { Modal } from "./Modal";
+import { useState, useEffect } from 'react';
+import { type Wish } from '../services/api';
+import { useWishContext } from '../context/WishContext';
+import { WishForm, type WishFormData } from './WishForm';
+import { createWishFromFormData } from '../utils/wishFormUtils';
+import { Modal } from './Modal';
 
 interface UpdateWishModalProps {
   isOpen: boolean;
@@ -13,7 +13,7 @@ interface UpdateWishModalProps {
 
 const getInitialFormData = (wish: Wish | null): WishFormData => {
   if (!wish) {
-    return { image: "", title: "", description: "", price: "" };
+    return { image: '', title: '', description: '', price: '' };
   }
   return {
     image: wish.image,
@@ -25,7 +25,9 @@ const getInitialFormData = (wish: Wish | null): WishFormData => {
 
 const UpdateWishModal = ({ isOpen, onClose, wish }: UpdateWishModalProps) => {
   const { updateWishById } = useWishContext();
-  const [formData, setFormData] = useState<WishFormData>(() => getInitialFormData(wish));
+  const [formData, setFormData] = useState<WishFormData>(() =>
+    getInitialFormData(wish)
+  );
 
   useEffect(() => {
     if (wish) {
@@ -42,7 +44,7 @@ const UpdateWishModal = ({ isOpen, onClose, wish }: UpdateWishModalProps) => {
       await updateWishById(wish.id, updatedWish);
       onClose();
     } catch (error) {
-      console.error("Error updating wish:", error);
+      console.error('Error updating wish:', error);
     }
   };
 

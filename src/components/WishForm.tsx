@@ -51,7 +51,7 @@ export const WishForm = ({
     if (imageUrl === previousImageUrl.current) {
       return;
     }
-    
+
     previousImageUrl.current = imageUrl;
 
     // Reset state when URL is empty
@@ -68,13 +68,13 @@ export const WishForm = ({
     // Valid use case: updating loading state before async operation
     // eslint-disable-next-line react-hooks/exhaustive-deps
     setImageState(prev => ({ ...prev, loading: true }));
-    
+
     const cleanup = validateAndLoadImage(
       imageUrl,
-      (url) => {
+      url => {
         setImageState({ preview: url, error: '', loading: false });
       },
-      (error) => {
+      error => {
         setImageState({ preview: '', error, loading: false });
       }
     );
@@ -82,7 +82,11 @@ export const WishForm = ({
     return cleanup;
   }, [formData.image]);
 
-  const { error: imageError, loading: imageLoading, preview: imagePreview } = imageState;
+  const {
+    error: imageError,
+    loading: imageLoading,
+    preview: imagePreview,
+  } = imageState;
 
   return (
     <form onSubmit={onSubmit} className={styles.wishForm}>
@@ -90,21 +94,20 @@ export const WishForm = ({
         <label htmlFor="image">
           Image URL:
           <span className={styles.formHint}>
-            You can use links from Google Images, other sites, or direct image links
+            You can use links from Google Images, other sites, or direct image
+            links
           </span>
         </label>
         <input
           id="image"
           type="url"
           value={formData.image}
-          onChange={(e) => handleChange('image', e.target.value)}
+          onChange={e => handleChange('image', e.target.value)}
           placeholder="https://example.com/image.jpg or link from Google Images"
           required
           className={imageError ? styles.inputError : ''}
         />
-        {imageError && (
-          <span className={styles.formError}>{imageError}</span>
-        )}
+        {imageError && <span className={styles.formError}>{imageError}</span>}
         {imageLoading && (
           <div className={styles.imagePreviewLoading}>Loading image...</div>
         )}
@@ -112,11 +115,15 @@ export const WishForm = ({
           <div className={styles.imagePreviewContainer}>
             <div className={styles.imagePreviewLabel}>Preview:</div>
             <div className={styles.imagePreview}>
-              <img 
-                src={imagePreview} 
-                alt="Preview" 
+              <img
+                src={imagePreview}
+                alt="Preview"
                 onError={() => {
-                  setImageState({ preview: '', error: 'Error loading image', loading: false });
+                  setImageState({
+                    preview: '',
+                    error: 'Error loading image',
+                    loading: false,
+                  });
                 }}
               />
             </div>
@@ -129,7 +136,7 @@ export const WishForm = ({
           id="title"
           type="text"
           value={formData.title}
-          onChange={(e) => handleChange('title', e.target.value)}
+          onChange={e => handleChange('title', e.target.value)}
           required
         />
       </div>
@@ -138,7 +145,7 @@ export const WishForm = ({
         <textarea
           id="description"
           value={formData.description}
-          onChange={(e) => handleChange('description', e.target.value)}
+          onChange={e => handleChange('description', e.target.value)}
           required
         />
       </div>
@@ -148,7 +155,7 @@ export const WishForm = ({
           id="price"
           type="number"
           value={formData.price}
-          onChange={(e) => handleChange('price', e.target.value)}
+          onChange={e => handleChange('price', e.target.value)}
           required
           min="0"
           step="0.01"
@@ -165,5 +172,3 @@ export const WishForm = ({
     </form>
   );
 };
-
-

@@ -1,10 +1,9 @@
-import { ActionButton, BackButton } from "../../buttons";
-import { DeleteConfirmationModal } from "../../components/DeleteConfirmationModal";
-import { UpdateWishModal } from "../../components/UpdateWishModal";
-import { WishInfo } from "../../components/WishInfo";
-import { useWishDetail } from "../../hooks/useWishDetail";
-import styles from "./WishPage.module.scss";
-
+import { ActionButton, BackButton } from '../../buttons';
+import { DeleteConfirmationModal } from '../../components/DeleteConfirmationModal';
+import { UpdateWishModal } from '../../components/UpdateWishModal';
+import { WishInfo } from '../../components/WishInfo';
+import { useWishDetail } from '../../hooks/useWishDetail';
+import styles from './WishPage.module.scss';
 
 const WishPage = () => {
   const {
@@ -16,7 +15,7 @@ const WishPage = () => {
     handleDeleteClick,
     handleUpdateClick,
     navigateBack,
-  } = useWishDetail("/");
+  } = useWishDetail('/');
 
   if (loading) {
     return (

@@ -16,7 +16,9 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .wishImageContainer:hover {
@@ -104,12 +106,12 @@
   .wishInfoBlock {
     flex-direction: column;
   }
-  
+
   .wishImageContainer {
     max-width: 100%;
     width: 100%;
   }
-  
+
   .wishContent {
     min-width: 100%;
   }
@@ -119,9 +121,8 @@
   .wishInfoBlock {
     gap: 1rem;
   }
-  
+
   .wishImageContainer {
     border-radius: 8px;
   }
 }
-

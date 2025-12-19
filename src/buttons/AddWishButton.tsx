@@ -1,4 +1,4 @@
-import styles from "./buttons.module.scss";
+import styles from './buttons.module.scss';
 
 interface AddWishButtonProps {
   onClick: () => void;
@@ -12,6 +12,3 @@ export const AddWishButton = ({ onClick, children }: AddWishButtonProps) => {
     </button>
   );
 };
-
-
-

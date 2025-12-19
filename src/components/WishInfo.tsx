@@ -1,6 +1,6 @@
-import { type Wish } from "../services/api";
-import styles from "./WishInfo.module.scss";
-import { PLACEHOLDER_IMAGE, handleImageError } from "../utils/imageUtils";
+import { type Wish } from '../services/api';
+import styles from './WishInfo.module.scss';
+import { PLACEHOLDER_IMAGE, handleImageError } from '../utils/imageUtils';
 
 interface WishInfoProps {
   wish: Wish;
@@ -21,20 +21,22 @@ export const WishInfo = ({ wish }: WishInfoProps) => {
 
   return (
     <div className={styles.wishInfoBlock}>
-      <div 
-        className={styles.wishImageContainer} 
+      <div
+        className={styles.wishImageContainer}
         onClick={handleImageClick}
         style={{ cursor: hasImage ? 'pointer' : 'default' }}
       >
-        <img 
-          src={wish.image || PLACEHOLDER_IMAGE.DETAIL} 
-          alt={wish.title} 
+        <img
+          src={wish.image || PLACEHOLDER_IMAGE.DETAIL}
+          alt={wish.title}
           className={styles.wishImage}
           onError={onImageError}
         />
         {hasImage && (
           <div className={styles.wishImageOverlay}>
-            <span className={styles.wishImageHint}>Click to view in full size</span>
+            <span className={styles.wishImageHint}>
+              Click to view in full size
+            </span>
           </div>
         )}
       </div>
@@ -46,4 +48,3 @@ export const WishInfo = ({ wish }: WishInfoProps) => {
     </div>
   );
 };
-

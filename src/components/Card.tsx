@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router";
-import styles from "./Card.module.scss";
-import { CardButton } from "../buttons";
-import { PLACEHOLDER_IMAGE, handleImageError } from "../utils/imageUtils";
+import { useNavigate } from 'react-router';
+import styles from './Card.module.scss';
+import { CardButton } from '../buttons';
+import { PLACEHOLDER_IMAGE, handleImageError } from '../utils/imageUtils';
 
 interface CardProps {
   id: string;
@@ -36,13 +36,13 @@ const Card = ({
 
   return (
     <div className={styles.card}>
-      <div 
-        className={styles.cardImage} 
+      <div
+        className={styles.cardImage}
         onClick={handleImageClick}
         style={{ cursor: hasImage ? 'pointer' : 'default' }}
       >
-        <img 
-          src={image || PLACEHOLDER_IMAGE.CARD} 
+        <img
+          src={image || PLACEHOLDER_IMAGE.CARD}
           alt={title}
           onError={onImageError}
         />
@@ -63,19 +63,11 @@ const Card = ({
           Details
         </CardButton>
 
-        <CardButton
-          variant="update"
-          onClick={onUpdate}
-          disabled={!onUpdate}
-        >
+        <CardButton variant="update" onClick={onUpdate} disabled={!onUpdate}>
           Update
         </CardButton>
 
-        <CardButton
-          variant="delete"
-          onClick={onDelete}
-          disabled={!onDelete}
-        >
+        <CardButton variant="delete" onClick={onDelete} disabled={!onDelete}>
           Delete
         </CardButton>
       </footer>

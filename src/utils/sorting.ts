@@ -1,5 +1,10 @@
 import { type Wish } from '../services/api';
-import { type DateFilter, type PriceFilter, DATE_FILTERS, PRICE_FILTERS } from '../constants';
+import {
+  type DateFilter,
+  type PriceFilter,
+  DATE_FILTERS,
+  PRICE_FILTERS,
+} from '../constants';
 
 export interface WishWithDate extends Wish {
   createdAt?: string;
@@ -33,16 +38,16 @@ export const sortWishes = (
   if (wishes.length === 0) {
     return [];
   }
-  
+
   const wishesWithDate = wishes as WishWithDate[];
   const sorted = [...wishesWithDate];
-  
+
   // Apply both filters independently - priority determines which is primary
   sorted.sort((a, b) => {
     // Apply date filter
     const dateA = getDateTimestamp(a);
     const dateB = getDateTimestamp(b);
-    
+
     let dateComparison = 0;
     if (dateFilter === DATE_FILTERS.NEWEST) {
       // Newest first: sort by date descending
@@ -51,7 +56,7 @@ export const sortWishes = (
       // Oldest first: sort by date ascending
       dateComparison = dateA - dateB;
     }
-    
+
     // Apply price filter
     let priceComparison = 0;
     if (priceFilter === PRICE_FILTERS.HIGH_TO_LOW) {
@@ -60,7 +65,7 @@ export const sortWishes = (
       // LOW_TO_HIGH
       priceComparison = a.price - b.price;
     }
-    
+
     // Use the filter that was changed last as primary sort
     if (filterPriority === 'date') {
       // Date is primary - if dates are different, use date sort
@@ -81,13 +86,10 @@ export const sortWishes = (
         return dateComparison;
       }
     }
-    
+
     // If both date and price are the same, maintain stable sort by ID
     return a.id.localeCompare(b.id);
   });
-  
+
   return sorted;
 };
-
-
-

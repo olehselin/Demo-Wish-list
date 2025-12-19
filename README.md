@@ -5,7 +5,7 @@ A modern, full-featured wish list management application built with React, TypeS
 ## Features
 
 - **CRUD Operations**: Create, read, update, and delete wishes
-- **Wish Management**: 
+- **Wish Management**:
   - Add new wishes with image, title, description, and price
   - Update existing wishes
   - Delete wishes with confirmation modal
@@ -72,12 +72,14 @@ src/
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd wish-list/wish-list/wish-list
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
@@ -87,15 +89,19 @@ npm install
 The application requires two separate processes to run:
 
 1. **Start the JSON Server** (backend API):
+
 ```bash
 npm run server
 ```
+
 This will start the JSON Server on `http://localhost:3000`
 
 2. **Start the Development Server** (in a new terminal):
+
 ```bash
 npm run dev
 ```
+
 This will start the Vite development server, typically on `http://localhost:5173`
 
 3. Open your browser and navigate to the development server URL (usually `http://localhost:5173`)
@@ -153,21 +159,25 @@ interface Wish {
 ## Features in Detail
 
 ### Dashboard
+
 - Displays all wishes in a grid layout
 - Filter and sort wishes
 - Pagination for large lists
 - Add, update, and delete wishes
 
 ### Wish Detail Page
+
 - View complete information about a specific wish
 - Navigate back to the dashboard
 
 ### Modals
+
 - **Add Wish Modal**: Create new wishes with form validation
 - **Update Wish Modal**: Edit existing wishes
 - **Delete Confirmation Modal**: Confirm before deleting wishes
 
 ### Filters
+
 - Date filter: Sort by newest or oldest
 - Price filter: Sort by lowest or highest price
 - Priority-based sorting
@@ -175,9 +185,11 @@ interface Wish {
 ## Development
 
 ### Code Style
+
 The project uses ESLint for code quality. Run `npm run lint` to check for issues.
 
 ### TypeScript
+
 The project is fully typed with TypeScript. Type definitions are available throughout the codebase.
 
 ## License

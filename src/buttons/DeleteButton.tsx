@@ -1,4 +1,4 @@
-import styles from "./buttons.module.scss";
+import styles from './buttons.module.scss';
 
 interface DeleteButtonProps {
   onClick: () => void;
@@ -12,6 +12,3 @@ export const DeleteButton = ({ onClick, children }: DeleteButtonProps) => {
     </button>
   );
 };
-
-
-

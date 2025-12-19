@@ -129,23 +129,20 @@
   flex-wrap: wrap;
 }
 
-
 /* Responsive design for Form */
 @media (max-width: 480px) {
   .formActions {
     flex-direction: column-reverse;
     width: 100%;
   }
-  
 }
 
 @media (max-width: 320px) {
   .wishForm {
     gap: 0.875rem;
   }
-  
+
   .formGroup textarea {
     min-height: 100px;
   }
 }
-

@@ -1,8 +1,8 @@
-import { useEffect, useState, useCallback, useMemo, useRef } from "react";
-import { useNavigate, useParams } from "react-router";
-import { type Wish } from "../services/api";
-import { useWishContext } from "../context/WishContext";
-import { useModal } from "./useModal";
+import { useEffect, useState, useCallback, useMemo, useRef } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import { type Wish } from '../services/api';
+import { useWishContext } from '../context/WishContext';
+import { useModal } from './useModal';
 
 interface UseWishDetailReturn {
   wish: Wish | null;
@@ -16,10 +16,15 @@ interface UseWishDetailReturn {
   navigateBack: (path?: string) => void;
 }
 
-export const useWishDetail = (defaultBackPath = "/"): UseWishDetailReturn => {
+export const useWishDetail = (defaultBackPath = '/'): UseWishDetailReturn => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { getWish, removeWish, loading: contextLoading, wishes } = useWishContext();
+  const {
+    getWish,
+    removeWish,
+    loading: contextLoading,
+    wishes,
+  } = useWishContext();
   const [loadedWish, setLoadedWish] = useState<Wish | null>(null);
   const [localLoading, setLocalLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -29,7 +34,7 @@ export const useWishDetail = (defaultBackPath = "/"): UseWishDetailReturn => {
 
   const contextWish = useMemo(() => {
     if (!id) return null;
-    return wishes.find((w) => w.id === id) ?? null;
+    return wishes.find(w => w.id === id) ?? null;
   }, [id, wishes]);
 
   const wish = contextWish ?? loadedWish;
@@ -50,13 +55,14 @@ export const useWishDetail = (defaultBackPath = "/"): UseWishDetailReturn => {
         if (data) {
           setLoadedWish(data);
         } else {
-          setError("Wish not found");
+          setError('Wish not found');
           navigate(defaultBackPath);
         }
       } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : "Failed to load wish";
+        const errorMessage =
+          err instanceof Error ? err.message : 'Failed to load wish';
         setError(errorMessage);
-        console.error("Error loading wish:", err);
+        console.error('Error loading wish:', err);
         navigate(defaultBackPath);
       } finally {
         setLocalLoading(false);
@@ -75,9 +81,10 @@ export const useWishDetail = (defaultBackPath = "/"): UseWishDetailReturn => {
       deleteModal.close();
       navigate(defaultBackPath);
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Failed to delete wish";
+      const errorMessage =
+        err instanceof Error ? err.message : 'Failed to delete wish';
       setError(errorMessage);
-      console.error("Error deleting wish:", err);
+      console.error('Error deleting wish:', err);
     }
   }, [wish, removeWish, deleteModal, navigate, defaultBackPath]);
 
@@ -108,4 +115,3 @@ export const useWishDetail = (defaultBackPath = "/"): UseWishDetailReturn => {
     navigateBack,
   };
 };
-

@@ -1,7 +1,7 @@
-import styles from "./Snackbar.module.scss";
-import { SnackbarCloseButton } from "../buttons";
+import styles from './Snackbar.module.scss';
+import { SnackbarCloseButton } from '../buttons';
 
-export type SnackbarType = "success" | "error" | "info";
+export type SnackbarType = 'success' | 'error' | 'info';
 
 export interface SnackbarMessage {
   id: string;
@@ -15,10 +15,13 @@ interface SnackbarProps {
 }
 
 export const Snackbar = ({ message, onClose }: SnackbarProps) => {
-  const typeClass = message.type === 'success' ? styles.snackbarSuccess : 
-                    message.type === 'error' ? styles.snackbarError : 
-                    styles.snackbarInfo;
-  
+  const typeClass =
+    message.type === 'success'
+      ? styles.snackbarSuccess
+      : message.type === 'error'
+        ? styles.snackbarError
+        : styles.snackbarInfo;
+
   return (
     <div className={`${styles.snackbar} ${typeClass}`} role="alert">
       <span className={styles.snackbarMessage}>{message.message}</span>
@@ -26,5 +29,3 @@ export const Snackbar = ({ message, onClose }: SnackbarProps) => {
     </div>
   );
 };
-
-

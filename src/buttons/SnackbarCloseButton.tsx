@@ -1,4 +1,4 @@
-import styles from "./buttons.module.scss";
+import styles from './buttons.module.scss';
 
 interface SnackbarCloseButtonProps {
   onClick: () => void;
@@ -6,11 +6,12 @@ interface SnackbarCloseButtonProps {
 
 export const SnackbarCloseButton = ({ onClick }: SnackbarCloseButtonProps) => {
   return (
-    <button className={styles.snackbarClose} onClick={onClick} aria-label="Close">
+    <button
+      className={styles.snackbarClose}
+      onClick={onClick}
+      aria-label="Close"
+    >
       ×
     </button>
   );
 };
-
-
-

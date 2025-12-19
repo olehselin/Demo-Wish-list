@@ -1,6 +1,7 @@
 // In production, use relative URLs to call Vercel API routes
 // In development, use the json-server URL
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 
+export const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
   (import.meta.env.PROD ? '' : 'http://localhost:3000');
 
 export const PAGINATION = {
@@ -18,8 +19,5 @@ export const PRICE_FILTERS = {
   LOW_TO_HIGH: 'low-to-high',
 } as const;
 
-export type DateFilter = typeof DATE_FILTERS[keyof typeof DATE_FILTERS];
-export type PriceFilter = typeof PRICE_FILTERS[keyof typeof PRICE_FILTERS];
-
-
-
+export type DateFilter = (typeof DATE_FILTERS)[keyof typeof DATE_FILTERS];
+export type PriceFilter = (typeof PRICE_FILTERS)[keyof typeof PRICE_FILTERS];

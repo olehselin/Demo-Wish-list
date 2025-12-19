@@ -1,4 +1,4 @@
-import styles from "./buttons.module.scss";
+import styles from './buttons.module.scss';
 
 interface PaginationNumberButtonProps {
   onClick: () => void;
@@ -6,16 +6,17 @@ interface PaginationNumberButtonProps {
   children: React.ReactNode;
 }
 
-export const PaginationNumberButton = ({ onClick, isActive, children }: PaginationNumberButtonProps) => {
+export const PaginationNumberButton = ({
+  onClick,
+  isActive,
+  children,
+}: PaginationNumberButtonProps) => {
   return (
     <button
-      className={`${styles.paginationNumber} ${isActive ? styles.paginationNumberActive : ""}`}
+      className={`${styles.paginationNumber} ${isActive ? styles.paginationNumberActive : ''}`}
       onClick={onClick}
     >
       {children}
     </button>
   );
 };
-
-
-

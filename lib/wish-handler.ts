@@ -13,22 +13,26 @@ let inMemoryWishes: Wish[] | null = null;
 const DEFAULT_DATA = {
   wishes: [
     {
-      id: "1",
-      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
-      title: "Apple Watch Smartwatch",
-      description: "Modern smartwatch with numerous features: health monitoring, notifications, fitness tracking and much more. Perfect companion for an active lifestyle.",
+      id: '1',
+      image:
+        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80',
+      title: 'Apple Watch Smartwatch',
+      description:
+        'Modern smartwatch with numerous features: health monitoring, notifications, fitness tracking and much more. Perfect companion for an active lifestyle.',
       price: 1299.99,
-      createdAt: "2025-01-01T00:00:00.000Z"
+      createdAt: '2025-01-01T00:00:00.000Z',
     },
     {
-      id: "2",
-      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
-      title: "Sony WH-1000XM5 Wireless Headphones",
-      description: "Premium headphones with active noise cancellation, excellent sound quality and long battery life. Perfect for travel and daily use.",
+      id: '2',
+      image:
+        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80',
+      title: 'Sony WH-1000XM5 Wireless Headphones',
+      description:
+        'Premium headphones with active noise cancellation, excellent sound quality and long battery life. Perfect for travel and daily use.',
       price: 399.99,
-      createdAt: "2025-01-02T00:00:00.000Z"
-    }
-  ]
+      createdAt: '2025-01-02T00:00:00.000Z',
+    },
+  ],
 };
 
 // Load data from file or use default
@@ -48,7 +52,7 @@ const loadData = (): Wish[] => {
   } catch (error) {
     console.error('Error loading data file:', error);
   }
-  
+
   inMemoryWishes = DEFAULT_DATA.wishes;
   return inMemoryWishes;
 };
@@ -82,7 +86,7 @@ export const createWish = async (wishData: Omit<Wish, 'id'>): Promise<Wish> => {
   const newWish: Wish = {
     ...wishData,
     id: generateId(),
-    createdAt: wishData.createdAt || new Date().toISOString()
+    createdAt: wishData.createdAt || new Date().toISOString(),
   };
   wishes.push(newWish);
   saveData(wishes);
@@ -100,7 +104,10 @@ export const updateWish = async (id: string, wishData: Wish): Promise<Wish> => {
   return wishes[index];
 };
 
-export const patchWish = async (id: string, partialWish: Partial<Wish>): Promise<Wish> => {
+export const patchWish = async (
+  id: string,
+  partialWish: Partial<Wish>
+): Promise<Wish> => {
   const wishes = loadData();
   const index = wishes.findIndex(w => w.id === id);
   if (index === -1) {
@@ -120,4 +127,3 @@ export const deleteWish = async (id: string): Promise<void> => {
   wishes.splice(index, 1);
   saveData(wishes);
 };
-

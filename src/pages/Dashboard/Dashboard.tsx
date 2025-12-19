@@ -1,17 +1,17 @@
-import { useEffect, useState, useMemo } from "react";
-import styles from "./Dashboard.module.scss";
-import type { Wish } from "../../services/api";
-import { Card } from "../../components/Card";
-import { AddWishModal } from "../../components/AddWishModal";
-import { UpdateWishModal } from "../../components/UpdateWishModal";
-import { DeleteConfirmationModal } from "../../components/DeleteConfirmationModal";
-import { Filters } from "../../components/Filters";
-import { Pagination } from "../../components/Pagination";
-import { useWishContext } from "../../context/WishContext";
-import { usePagination } from "../../hooks/usePagination";
-import { useModal } from "../../hooks/useModal";
-import { useFilters } from "../../hooks/useFilters";
-import { sortWishes } from "../../utils/sorting";
+import { useEffect, useState, useMemo } from 'react';
+import styles from './Dashboard.module.scss';
+import type { Wish } from '../../services/api';
+import { Card } from '../../components/Card';
+import { AddWishModal } from '../../components/AddWishModal';
+import { UpdateWishModal } from '../../components/UpdateWishModal';
+import { DeleteConfirmationModal } from '../../components/DeleteConfirmationModal';
+import { Filters } from '../../components/Filters';
+import { Pagination } from '../../components/Pagination';
+import { useWishContext } from '../../context/WishContext';
+import { usePagination } from '../../hooks/usePagination';
+import { useModal } from '../../hooks/useModal';
+import { useFilters } from '../../hooks/useFilters';
+import { sortWishes } from '../../utils/sorting';
 
 const Dashboard = () => {
   const { wishes, loading, loadWishes, removeWish } = useWishContext();
@@ -21,11 +21,29 @@ const Dashboard = () => {
   const [wishToDelete, setWishToDelete] = useState<Wish | null>(null);
   const [wishToUpdate, setWishToUpdate] = useState<Wish | null>(null);
 
-  const { isOpen: isAddModalOpen, open: openAddModal, close: closeAddModal } = useModal();
-  const { isOpen: isDeleteModalOpen, open: openDeleteModal, close: closeDeleteModal } = useModal();
-  const { isOpen: isUpdateModalOpen, open: openUpdateModal, close: closeUpdateModal } = useModal();
+  const {
+    isOpen: isAddModalOpen,
+    open: openAddModal,
+    close: closeAddModal,
+  } = useModal();
+  const {
+    isOpen: isDeleteModalOpen,
+    open: openDeleteModal,
+    close: closeDeleteModal,
+  } = useModal();
+  const {
+    isOpen: isUpdateModalOpen,
+    open: openUpdateModal,
+    close: closeUpdateModal,
+  } = useModal();
 
-  const { dateFilter, priceFilter, filterPriority, setDateFilter, setPriceFilter } = useFilters();
+  const {
+    dateFilter,
+    priceFilter,
+    filterPriority,
+    setDateFilter,
+    setPriceFilter,
+  } = useFilters();
 
   const filteredWishes = useMemo(() => {
     return sortWishes(wishes, dateFilter, priceFilter, filterPriority);
@@ -67,7 +85,7 @@ const Dashboard = () => {
       closeDeleteModal();
       setWishToDelete(null);
     } catch (error) {
-      console.error("Error deleting wish:", error);
+      console.error('Error deleting wish:', error);
     }
   };
 
@@ -113,11 +131,14 @@ const Dashboard = () => {
         </div>
 
         {/* Grid of wishes */}
-        <div className={styles.wishesContainer} key={`${dateFilter}-${priceFilter}`}>
+        <div
+          className={styles.wishesContainer}
+          key={`${dateFilter}-${priceFilter}`}
+        >
           {paginatedItems.length === 0 ? (
             <p>No wishes</p>
           ) : (
-            paginatedItems.map((wish) => {
+            paginatedItems.map(wish => {
               const { id, image, title, description, price } = wish;
               return (
                 <Card
@@ -154,7 +175,7 @@ const Dashboard = () => {
         isOpen={isDeleteModalOpen}
         onClose={handleCloseDeleteModal}
         onConfirm={handleDelete}
-        wishTitle={wishToDelete?.title || ""}
+        wishTitle={wishToDelete?.title || ''}
       />
 
       <UpdateWishModal

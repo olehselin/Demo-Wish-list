@@ -1,4 +1,4 @@
-import styles from "./buttons.module.scss";
+import styles from './buttons.module.scss';
 
 interface PaginationButtonProps {
   onClick: () => void;
@@ -6,7 +6,11 @@ interface PaginationButtonProps {
   children: React.ReactNode;
 }
 
-export const PaginationButton = ({ onClick, disabled, children }: PaginationButtonProps) => {
+export const PaginationButton = ({
+  onClick,
+  disabled,
+  children,
+}: PaginationButtonProps) => {
   return (
     <button
       className={styles.paginationButton}
@@ -17,6 +21,3 @@ export const PaginationButton = ({ onClick, disabled, children }: PaginationButt
     </button>
   );
 };
-
-
-

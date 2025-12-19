@@ -25,7 +25,10 @@ export const updateWish = async (id: string, wish: Wish): Promise<Wish> => {
   return apiClient.put<Wish>(`/wishes/${id}`, wish);
 };
 
-export const patchWish = async (id: string, partialWish: Partial<Wish>): Promise<Wish> => {
+export const patchWish = async (
+  id: string,
+  partialWish: Partial<Wish>
+): Promise<Wish> => {
   return apiClient.patch<Wish>(`/wishes/${id}`, partialWish);
 };
 

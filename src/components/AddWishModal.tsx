@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { useWishContext } from "../context/WishContext";
-import { WishForm, type WishFormData } from "./WishForm";
-import { createWishFromFormData } from "../utils/wishFormUtils";
-import { Modal } from "./Modal";
+import { useState, useEffect } from 'react';
+import { useWishContext } from '../context/WishContext';
+import { WishForm, type WishFormData } from './WishForm';
+import { createWishFromFormData } from '../utils/wishFormUtils';
+import { Modal } from './Modal';
 
 interface AddWishModalProps {
   isOpen: boolean;
@@ -10,13 +10,11 @@ interface AddWishModalProps {
 }
 
 const INITIAL_FORM_DATA: WishFormData = {
-  image: "",
-  title: "",
-  description: "",
-  price: "",
+  image: '',
+  title: '',
+  description: '',
+  price: '',
 };
-
-
 
 const AddWishModal = ({ isOpen, onClose }: AddWishModalProps) => {
   const { addWish } = useWishContext();
@@ -35,7 +33,7 @@ const AddWishModal = ({ isOpen, onClose }: AddWishModalProps) => {
       await addWish(newWish);
       onClose();
     } catch (error) {
-      console.error("Error adding wish:", error);
+      console.error('Error adding wish:', error);
     }
   };
 

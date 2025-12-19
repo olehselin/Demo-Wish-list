@@ -1,5 +1,10 @@
 import { useState, useCallback } from 'react';
-import { type DateFilter, type PriceFilter, DATE_FILTERS, PRICE_FILTERS } from '../constants';
+import {
+  type DateFilter,
+  type PriceFilter,
+  DATE_FILTERS,
+  PRICE_FILTERS,
+} from '../constants';
 
 type FilterPriority = 'date' | 'price';
 
@@ -12,11 +17,13 @@ interface UseFiltersReturn {
   resetFilters: () => void;
 }
 
-export const useFilters = (
-  onFilterChange?: () => void
-): UseFiltersReturn => {
-  const [dateFilter, setDateFilterState] = useState<DateFilter>(DATE_FILTERS.NEWEST);
-  const [priceFilter, setPriceFilterState] = useState<PriceFilter>(PRICE_FILTERS.HIGH_TO_LOW);
+export const useFilters = (onFilterChange?: () => void): UseFiltersReturn => {
+  const [dateFilter, setDateFilterState] = useState<DateFilter>(
+    DATE_FILTERS.NEWEST
+  );
+  const [priceFilter, setPriceFilterState] = useState<PriceFilter>(
+    PRICE_FILTERS.HIGH_TO_LOW
+  );
   const [filterPriority, setFilterPriority] = useState<FilterPriority>('date');
 
   const setDateFilter = useCallback(
@@ -53,6 +60,3 @@ export const useFilters = (
     resetFilters,
   };
 };
-
-
-

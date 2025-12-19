@@ -15,7 +15,10 @@ class ApiError extends Error {
   }
 }
 
-const buildUrl = (endpoint: string, params?: Record<string, string>): string => {
+const buildUrl = (
+  endpoint: string,
+  params?: Record<string, string>
+): string => {
   const url = new URL(endpoint, API_BASE_URL);
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
@@ -47,7 +50,11 @@ export const apiClient = {
     return handleResponse<T>(response);
   },
 
-  post: async <T>(endpoint: string, data?: unknown, options?: RequestOptions): Promise<T> => {
+  post: async <T>(
+    endpoint: string,
+    data?: unknown,
+    options?: RequestOptions
+  ): Promise<T> => {
     const url = buildUrl(endpoint, options?.params);
     const response = await fetch(url, {
       ...options,
@@ -61,7 +68,11 @@ export const apiClient = {
     return handleResponse<T>(response);
   },
 
-  put: async <T>(endpoint: string, data?: unknown, options?: RequestOptions): Promise<T> => {
+  put: async <T>(
+    endpoint: string,
+    data?: unknown,
+    options?: RequestOptions
+  ): Promise<T> => {
     const url = buildUrl(endpoint, options?.params);
     const response = await fetch(url, {
       ...options,
@@ -75,7 +86,11 @@ export const apiClient = {
     return handleResponse<T>(response);
   },
 
-  patch: async <T>(endpoint: string, data?: unknown, options?: RequestOptions): Promise<T> => {
+  patch: async <T>(
+    endpoint: string,
+    data?: unknown,
+    options?: RequestOptions
+  ): Promise<T> => {
     const url = buildUrl(endpoint, options?.params);
     const response = await fetch(url, {
       ...options,
@@ -104,6 +119,3 @@ export const apiClient = {
 };
 
 export { ApiError };
-
-
-

@@ -1,4 +1,4 @@
-import styles from "./buttons.module.scss";
+import styles from './buttons.module.scss';
 
 interface ModalCloseButtonProps {
   onClick: () => void;
@@ -11,6 +11,3 @@ export const ModalCloseButton = ({ onClick }: ModalCloseButtonProps) => {
     </button>
   );
 };
-
-
-

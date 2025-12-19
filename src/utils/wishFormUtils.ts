@@ -25,4 +25,3 @@ export const createWishFromFormData = (
     createdAt: new Date().toISOString(),
   };
 };
-

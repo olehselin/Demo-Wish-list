@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, useCallback, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  ReactNode,
+} from 'react';
 import {
   getWishes,
   getWishById,
@@ -6,9 +12,9 @@ import {
   updateWish,
   deleteWish,
   type Wish,
-} from "../services/api";
-import { ApiError } from "../utils/apiClient";
-import { useSnackbar } from "./SnackbarContext";
+} from '../services/api';
+import { ApiError } from '../utils/apiClient';
+import { useSnackbar } from './SnackbarContext';
 
 interface WishContextType {
   wishes: Wish[];
@@ -16,7 +22,7 @@ interface WishContextType {
   error: string | null;
   loadWishes: () => Promise<void>;
   getWish: (id: string) => Promise<Wish | null>;
-  addWish: (wish: Omit<Wish, "id">) => Promise<Wish>;
+  addWish: (wish: Omit<Wish, 'id'>) => Promise<Wish>;
   updateWishById: (id: string, wish: Wish) => Promise<Wish>;
   removeWish: (id: string) => Promise<void>;
   refreshWishes: () => Promise<void>;
@@ -28,7 +34,7 @@ const WishContext = createContext<WishContextType | undefined>(undefined);
 export const useWishContext = () => {
   const context = useContext(WishContext);
   if (!context) {
-    throw new Error("useWishContext must be used within a WishProvider");
+    throw new Error('useWishContext must be used within a WishProvider');
   }
   return context;
 };
@@ -67,88 +73,100 @@ export const WishProvider = ({ children }: WishProviderProps) => {
       setWishes(data);
       // Don't show success snackbar for automatic data loading
     } catch (err) {
-      const errorMessage = getErrorMessage(err, "Failed to load wishes");
+      const errorMessage = getErrorMessage(err, 'Failed to load wishes');
       setError(errorMessage);
       showError(errorMessage);
-      console.error("Error loading wishes:", err);
+      console.error('Error loading wishes:', err);
     } finally {
       setLoading(false);
     }
   }, [showError]);
 
-  const getWish = useCallback(async (id: string): Promise<Wish | null> => {
-    try {
-      setLoading(true);
-      setError(null);
-      const wish = await getWishById(id);
-      // Don't show success snackbar for data fetching
-      return wish;
-    } catch (err) {
-      const errorMessage = getErrorMessage(err, "Failed to load wish");
-      setError(errorMessage);
-      showError(errorMessage);
-      console.error("Error loading wish:", err);
-      return null;
-    } finally {
-      setLoading(false);
-    }
-  }, [showError]);
+  const getWish = useCallback(
+    async (id: string): Promise<Wish | null> => {
+      try {
+        setLoading(true);
+        setError(null);
+        const wish = await getWishById(id);
+        // Don't show success snackbar for data fetching
+        return wish;
+      } catch (err) {
+        const errorMessage = getErrorMessage(err, 'Failed to load wish');
+        setError(errorMessage);
+        showError(errorMessage);
+        console.error('Error loading wish:', err);
+        return null;
+      } finally {
+        setLoading(false);
+      }
+    },
+    [showError]
+  );
 
-  const addWish = useCallback(async (wish: Omit<Wish, "id">): Promise<Wish> => {
-    try {
-      setLoading(true);
-      setError(null);
-      const newWish = await createWish(wish);
-      setWishes((prev) => [...prev, newWish]);
-      showSuccess("Wish added successfully");
-      return newWish;
-    } catch (err) {
-      const errorMessage = getErrorMessage(err, "Failed to create wish");
-      setError(errorMessage);
-      showError(errorMessage);
-      console.error("Error creating wish:", err);
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  }, [showSuccess, showError]);
+  const addWish = useCallback(
+    async (wish: Omit<Wish, 'id'>): Promise<Wish> => {
+      try {
+        setLoading(true);
+        setError(null);
+        const newWish = await createWish(wish);
+        setWishes(prev => [...prev, newWish]);
+        showSuccess('Wish added successfully');
+        return newWish;
+      } catch (err) {
+        const errorMessage = getErrorMessage(err, 'Failed to create wish');
+        setError(errorMessage);
+        showError(errorMessage);
+        console.error('Error creating wish:', err);
+        throw err;
+      } finally {
+        setLoading(false);
+      }
+    },
+    [showSuccess, showError]
+  );
 
-  const updateWishById = useCallback(async (id: string, wish: Wish): Promise<Wish> => {
-    try {
-      setLoading(true);
-      setError(null);
-      const updatedWish = await updateWish(id, wish);
-      setWishes((prev) => prev.map((w) => (w.id === id ? updatedWish : w)));
-      showSuccess("Wish updated successfully");
-      return updatedWish;
-    } catch (err) {
-      const errorMessage = getErrorMessage(err, "Failed to update wish");
-      setError(errorMessage);
-      showError(errorMessage);
-      console.error("Error updating wish:", err);
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  }, [showSuccess, showError]);
+  const updateWishById = useCallback(
+    async (id: string, wish: Wish): Promise<Wish> => {
+      try {
+        setLoading(true);
+        setError(null);
+        const updatedWish = await updateWish(id, wish);
+        setWishes(prev => prev.map(w => (w.id === id ? updatedWish : w)));
+        showSuccess('Wish updated successfully');
+        return updatedWish;
+      } catch (err) {
+        const errorMessage = getErrorMessage(err, 'Failed to update wish');
+        setError(errorMessage);
+        showError(errorMessage);
+        console.error('Error updating wish:', err);
+        throw err;
+      } finally {
+        setLoading(false);
+      }
+    },
+    [showSuccess, showError]
+  );
 
-  const removeWish = useCallback(async (id: string): Promise<void> => {
-    try {
-      setLoading(true);
-      setError(null);
-      await deleteWish(id);
-      setWishes((prev) => prev.filter((w) => w.id !== id));
-      showSuccess("Wish deleted successfully");
-    } catch (err) {
-      const errorMessage = getErrorMessage(err, "Failed to delete wish");
-      setError(errorMessage);
-      showError(errorMessage);
-      console.error("Error deleting wish:", err);
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  }, [showSuccess, showError]);
+  const removeWish = useCallback(
+    async (id: string): Promise<void> => {
+      try {
+        setLoading(true);
+        setError(null);
+        await deleteWish(id);
+        setWishes(prev => prev.filter(w => w.id !== id));
+        showSuccess('Wish deleted successfully');
+      } catch (err) {
+        const errorMessage = getErrorMessage(err, 'Failed to delete wish');
+        setError(errorMessage);
+        showError(errorMessage);
+        console.error('Error deleting wish:', err);
+        throw err;
+      } finally {
+        setLoading(false);
+      }
+    },
+    [showSuccess, showError]
+  );
 
   const refreshWishes = useCallback(async () => {
     await loadWishes();
@@ -169,4 +187,3 @@ export const WishProvider = ({ children }: WishProviderProps) => {
 
   return <WishContext.Provider value={value}>{children}</WishContext.Provider>;
 };
-

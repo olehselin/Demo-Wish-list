@@ -1,5 +1,5 @@
-import styles from "./Modal.module.scss";
-import { ModalCloseButton } from "../buttons";
+import styles from './Modal.module.scss';
+import { ModalCloseButton } from '../buttons';
 
 interface ModalProps {
   isOpen: boolean;
@@ -9,20 +9,20 @@ interface ModalProps {
   className?: string;
 }
 
-export const Modal = ({ 
-  isOpen, 
-  onClose, 
-  title, 
-  children, 
-  className = "" 
+export const Modal = ({
+  isOpen,
+  onClose,
+  title,
+  children,
+  className = '',
 }: ModalProps) => {
   if (!isOpen) return null;
 
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
-      <div 
-        className={`${styles.modalContent} ${className}`.trim()} 
-        onClick={(e) => e.stopPropagation()}
+      <div
+        className={`${styles.modalContent} ${className}`.trim()}
+        onClick={e => e.stopPropagation()}
       >
         <div className={styles.modalHeader}>
           <h2>{title}</h2>
@@ -33,4 +33,3 @@ export const Modal = ({
     </div>
   );
 };
-

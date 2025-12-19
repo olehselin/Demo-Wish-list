@@ -5,13 +5,21 @@ export const PLACEHOLDER_IMAGE = {
   DETAIL_ERROR: 'https://via.placeholder.com/600x400?text=Image+Not+Available',
 };
 
-const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp'];
+const IMAGE_EXTENSIONS = [
+  '.jpg',
+  '.jpeg',
+  '.png',
+  '.gif',
+  '.webp',
+  '.svg',
+  '.bmp',
+];
 const IMAGE_DOMAINS = ['googleusercontent.com', 'googleapis.com'];
 const IMAGE_KEYWORDS = ['image', 'img'];
 
 export const isValidImageUrl = (url: string): boolean => {
   if (!url.trim()) return false;
-  
+
   try {
     const urlObj = new URL(url);
     return ['http:', 'https:'].includes(urlObj.protocol);
@@ -22,9 +30,9 @@ export const isValidImageUrl = (url: string): boolean => {
 
 export const isImageUrl = (url: string): boolean => {
   if (!url.trim()) return false;
-  
+
   const lowerUrl = url.toLowerCase();
-  
+
   return (
     IMAGE_EXTENSIONS.some(ext => lowerUrl.includes(ext)) ||
     IMAGE_KEYWORDS.some(keyword => lowerUrl.includes(keyword)) ||
@@ -67,7 +75,9 @@ export const validateAndLoadImage = (
   img.onerror = () => {
     if (!cancelled) {
       if (!isImageUrl(url)) {
-        onError('URL may not point to an image or the image is unavailable. Check the URL or try another link.');
+        onError(
+          'URL may not point to an image or the image is unavailable. Check the URL or try another link.'
+        );
       } else {
         onError('Failed to load image. Check the URL or try another link.');
       }
@@ -80,4 +90,3 @@ export const validateAndLoadImage = (
     cancelled = true;
   };
 };
-
