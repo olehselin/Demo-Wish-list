@@ -11,7 +11,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <SnackbarProvider>
       <WishProvider>
-        <BrowserRouter basename={import.meta.env.PROD ? '/Demo-Wish-list' : '/'}>
+        <BrowserRouter
+          basename={import.meta.env.PROD ? '/Demo-Wish-list' : '/'}
+        >
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/wish/:id" element={<WishPage />} />

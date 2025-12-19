@@ -27,7 +27,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Extract ID from query params or URL path
   // Vercel may not always pass id through req.query for dynamic routes
   let id: string | undefined = req.query.id as string | undefined;
-  
+
   // If ID is not in query, try to extract from URL
   if (!id && req.url) {
     const match = req.url.match(/\/wishes\/([^/?]+)/);
@@ -45,11 +45,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   if (!id || typeof id !== 'string') {
-    console.error('Invalid wish ID:', { 
-      id, 
-      query: req.query, 
+    console.error('Invalid wish ID:', {
+      id,
+      query: req.query,
       url: req.url,
-      queryKeys: Object.keys(req.query)
+      queryKeys: Object.keys(req.query),
     });
     res.status(400).json({ error: 'Invalid wish ID' });
     return;

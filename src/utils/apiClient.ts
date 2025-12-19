@@ -31,7 +31,6 @@ const buildUrl = (
     return url.toString();
   }
 
-  // If API_BASE_URL is empty, use relative URL
   if (!API_BASE_URL) {
     const url = new URL(endpoint, window.location.origin);
     if (params) {
@@ -42,8 +41,6 @@ const buildUrl = (
     return url.pathname + url.search;
   }
 
-  // Use API_BASE_URL as base
-  // API_BASE_URL already includes /api, so use it directly
   const url = new URL(`${API_BASE_URL}${endpoint}`);
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
