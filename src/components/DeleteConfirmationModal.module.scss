@@ -1,0 +1,42 @@
+.deleteModal {
+  max-width: 400px;
+}
+
+.deleteModalBody {
+  margin: clamp(1.25rem, 3vw, 1.5rem) 0;
+  text-align: center;
+}
+
+.deleteModalBody p {
+  margin: 0.75rem 0;
+  color: #374151;
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  line-height: 1.6;
+}
+
+.deleteWarning {
+  color: #ef4444;
+  font-size: clamp(0.875rem, 2vw, 0.9375rem);
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+
+/* Responsive design for DeleteConfirmationModal */
+@media (max-width: 480px) {
+  .deleteModal {
+    max-width: 100%;
+  }
+  
+  .deleteModalBody {
+    margin: 1.25rem 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .deleteModalBody {
+    margin: 1rem 0;
+  }
+  
+}
+

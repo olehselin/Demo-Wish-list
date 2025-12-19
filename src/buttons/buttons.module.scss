@@ -1,0 +1,512 @@
+/* Card Buttons */
+.cardButton {
+  flex: 1;
+  padding: clamp(0.625rem, 2vw, 0.75rem) clamp(0.875rem, 2vw, 1rem);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.875rem, 2vw, 0.9375rem);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardButtonDetails {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.cardButtonDetails:hover {
+  background-color: #357abd;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3);
+}
+
+.cardButtonUpdate {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.cardButtonUpdate:hover {
+  background-color: #d97706;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+}
+
+.cardButtonDelete {
+  background-color: #ef4444;
+  color: white;
+}
+
+.cardButtonDelete:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+}
+
+.cardButton:active {
+  transform: translateY(0);
+}
+
+.cardButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Action Buttons */
+.actionButton {
+  padding: clamp(0.875rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem);
+  border: none;
+  border-radius: 8px;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 44px;
+  font-family: inherit;
+}
+
+.updateButton,
+.actionButtonUpdateButton {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+}
+
+.updateButton:hover,
+.actionButtonUpdateButton:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+}
+
+.updateButton:active,
+.actionButtonUpdateButton:active {
+  transform: translateY(0);
+}
+
+.deleteButton,
+.actionButtonDeleteButton {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+}
+
+.deleteButton:hover,
+.actionButtonDeleteButton:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
+.deleteButton:active,
+.actionButtonDeleteButton:active {
+  transform: translateY(0);
+}
+
+.detailsButton,
+.actionButtonDetailsButton {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+}
+
+.detailsButton:hover,
+.actionButtonDetailsButton:hover {
+  background: linear-gradient(135deg, #357abd 0%, #2c6fa3 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
+.detailsButton:active,
+.actionButtonDetailsButton:active {
+  transform: translateY(0);
+}
+
+/* Back Button */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem clamp(1rem, 3vw, 1.5rem);
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.2);
+  min-height: 44px;
+  font-family: inherit;
+}
+
+.backButton:hover {
+  background: linear-gradient(135deg, #357abd 0%, #2c6fa3 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
+.backButton:active {
+  transform: translateY(0);
+}
+
+/* Back Link (alternative style) */
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem clamp(1rem, 3vw, 1.5rem);
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.2);
+  min-height: 44px;
+  font-family: inherit;
+}
+
+.backLink:hover {
+  background: linear-gradient(135deg, #357abd 0%, #2c6fa3 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
+.backLink:active {
+  transform: translateY(0);
+}
+
+/* Form Buttons */
+.btnCancel,
+.btnSubmit {
+  padding: 0.75rem clamp(1.25rem, 3vw, 1.5rem);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 100px;
+  font-family: inherit;
+}
+
+.btnCancel {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1.5px solid #e5e7eb;
+}
+
+.btnCancel:hover {
+  background-color: #e5e7eb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.btnCancel:active {
+  transform: translateY(0);
+}
+
+.btnSubmit {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.2);
+}
+
+.btnSubmit:hover {
+  background: linear-gradient(135deg, #357abd 0%, #2c6fa3 100%);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+  transform: translateY(-1px);
+}
+
+.btnSubmit:active {
+  transform: translateY(0);
+}
+
+/* Delete Button */
+.btnDelete {
+  padding: 0.75rem clamp(1.25rem, 3vw, 1.5rem);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  font-weight: 500;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 100px;
+  font-family: inherit;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+.btnDelete:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+  transform: translateY(-1px);
+}
+
+.btnDelete:active {
+  transform: translateY(0);
+}
+
+/* Add Wish Button */
+.addWishButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem clamp(1rem, 3vw, 1.5rem);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin-left: auto;
+  min-height: 44px;
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+.addWishButton:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+.addWishButton:active {
+  transform: translateY(0);
+}
+
+.addIcon {
+  font-size: 1.25rem;
+  line-height: 1;
+  font-weight: bold;
+}
+
+/* Pagination Buttons */
+.paginationButton {
+  padding: 0.625rem clamp(0.875rem, 2vw, 1rem);
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.875rem, 2vw, 0.9375rem);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.paginationButton:hover:not(:disabled) {
+  background-color: #357abd;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3);
+}
+
+.paginationButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.paginationButton:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.paginationNumber {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem;
+  background-color: #ffffff;
+  color: #374151;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.875rem, 2vw, 0.9375rem);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.paginationNumber:hover {
+  background-color: #f3f4f6;
+  border-color: #4a90e2;
+  color: #4a90e2;
+}
+
+.paginationNumberActive {
+  background-color: #4a90e2;
+  color: white;
+  border-color: #4a90e2;
+  font-weight: 600;
+}
+
+/* Modal Close Button */
+.modalClose {
+  background: none;
+  border: none;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  cursor: pointer;
+  color: #6b7280;
+  line-height: 1;
+  padding: 0.25rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.modalClose:hover {
+  color: #1a1a1a;
+  background-color: #f3f4f6;
+}
+
+.modalClose:active {
+  background-color: #e5e7eb;
+}
+
+/* Snackbar Close Button */
+.snackbarClose {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition: all 0.2s ease;
+  font-weight: 300;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.snackbarClose:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.snackbarClose:active {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.snackbarClose:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .actionButton {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardButton {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .formActions {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .btnCancel,
+  .btnSubmit {
+    width: 100%;
+  }
+
+  .btnDelete {
+    width: 100%;
+  }
+
+  .addWishButton {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .paginationButton {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .paginationNumber {
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 0.875rem;
+  }
+
+  .modalClose {
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .snackbarClose {
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .paginationButton {
+    padding: 0.5rem 0.625rem;
+    font-size: 0.8125rem;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  .paginationNumber {
+    min-width: 36px;
+    min-height: 36px;
+    padding: 0.375rem;
+    font-size: 0.8125rem;
+  }
+
+  .modalClose {
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .snackbarClose {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 1.125rem;
+    padding: 0.125rem;
+  }
+}
+

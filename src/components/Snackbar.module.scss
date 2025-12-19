@@ -1,0 +1,84 @@
+.snackbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 280px;
+  max-width: min(500px, calc(100vw - 2rem));
+  padding: clamp(0.875rem, 2vw, 1rem) clamp(1rem, 3vw, 1.25rem);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease-out;
+  pointer-events: auto;
+  font-size: clamp(0.875rem, 2vw, 0.9375rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.snackbarSuccess {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.snackbarError {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+}
+
+.snackbarInfo {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+}
+
+.snackbarMessage {
+  flex: 1;
+  margin-right: clamp(0.75rem, 2vw, 1rem);
+  line-height: 1.5;
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.snackbarExiting {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+/* Responsive design for Snackbar */
+@media (max-width: 480px) {
+  .snackbar {
+    min-width: calc(100vw - 2rem);
+    max-width: calc(100vw - 2rem);
+    padding: 0.875rem 1rem;
+  }
+  
+}
+
+@media (max-width: 320px) {
+  .snackbar {
+    min-width: calc(100vw - 1.5rem);
+    max-width: calc(100vw - 1.5rem);
+    padding: 0.75rem 0.875rem;
+    border-radius: 8px;
+  }
+  
+}
+

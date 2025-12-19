@@ -1,0 +1,175 @@
+.wishPage {
+  padding: clamp(1rem, 3vw, 2rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+}
+
+.wishPageHeader {
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+}
+
+
+.wishInfoBlock {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 2rem);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.wishInfoBlock::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+.wishImageContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.wishImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.wishImage:hover {
+  transform: scale(1.03);
+}
+
+.wishContent {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.wishTitle {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+}
+
+.wishDescription {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+  opacity: 0.95;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wishPrice {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+  padding: clamp(0.875rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  border-radius: 12px;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.wishPageFooter {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: auto;
+  border: 1.5px solid #e5e7eb;
+}
+
+
+.loading,
+.error {
+  text-align: center;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.error {
+  color: #ef4444;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .wishPageFooter {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .wishPage {
+    padding: 1rem;
+  }
+
+  .wishInfoBlock {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .wishImageContainer {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .wishPage {
+    padding: 0.75rem;
+  }
+
+  .wishInfoBlock {
+    padding: 1.25rem;
+    border-radius: 8px;
+  }
+
+  .wishPageFooter {
+    padding: 1.25rem;
+  }
+}
+

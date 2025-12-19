@@ -1,0 +1,151 @@
+.wishForm {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vw, 1.25rem);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.formGroup label {
+  font-weight: 500;
+  color: #374151;
+  font-size: clamp(0.875rem, 2vw, 0.9375rem);
+  line-height: 1.4;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  font-family: inherit;
+  color: #1f2937;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  line-height: 1.5;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.formGroup input:hover,
+.formGroup textarea:hover,
+.formGroup select:hover {
+  border-color: #9ca3af;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+  font-family: inherit;
+}
+
+.formHint {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 400;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.formError {
+  display: block;
+  font-size: 0.875rem;
+  color: #ef4444;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+}
+
+.inputError:focus {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.imagePreviewContainer {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background-color: #f9fafb;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.imagePreviewLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.imagePreview {
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePreview img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.imagePreviewLoading {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-align: center;
+  font-style: italic;
+}
+
+.formActions {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+
+/* Responsive design for Form */
+@media (max-width: 480px) {
+  .formActions {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+  
+}
+
+@media (max-width: 320px) {
+  .wishForm {
+    gap: 0.875rem;
+  }
+  
+  .formGroup textarea {
+    min-height: 100px;
+  }
+}
+
