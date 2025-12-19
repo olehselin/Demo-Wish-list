@@ -12,80 +12,6 @@
   margin-bottom: clamp(1.5rem, 4vw, 2rem);
 }
 
-.wishInfoBlock {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: clamp(1.5rem, 4vw, 3rem);
-  margin-bottom: clamp(1.5rem, 4vw, 2rem);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  border: 1.5px solid #e5e7eb;
-  display: flex;
-  flex-direction: column;
-  gap: clamp(1.5rem, 4vw, 2rem);
-  color: #1f2937;
-  position: relative;
-  overflow: hidden;
-}
-
-.wishImageContainer {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.wishImage {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.wishImage:hover {
-  transform: scale(1.03);
-}
-
-.wishContent {
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.wishTitle {
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-  color: #1f2937;
-  line-height: 1.2;
-}
-
-.wishDescription {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  line-height: 1.7;
-  margin: 0 0 1.5rem 0;
-  color: #4b5563;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.wishPrice {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 700;
-  background: #f9fafb;
-  color: #1f2937;
-  padding: clamp(0.875rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
-  border-radius: 12px;
-  display: inline-block;
-  border: 1.5px solid #e5e7eb;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
 .wishPageFooter {
   display: flex;
   gap: clamp(0.75rem, 2vw, 1rem);
@@ -123,25 +49,11 @@
   .wishPage {
     padding: 1rem;
   }
-
-  .wishInfoBlock {
-    padding: 1.5rem;
-    border-radius: 12px;
-  }
-
-  .wishImageContainer {
-    border-radius: 8px;
-  }
 }
 
 @media (max-width: 320px) {
   .wishPage {
     padding: 0.75rem;
-  }
-
-  .wishInfoBlock {
-    padding: 1.25rem;
-    border-radius: 8px;
   }
 
   .wishPageFooter {
