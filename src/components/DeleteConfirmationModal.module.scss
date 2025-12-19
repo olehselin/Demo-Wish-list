@@ -21,6 +21,13 @@
   margin-top: 0.5rem;
 }
 
+.formActions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
 
 /* Responsive design for DeleteConfirmationModal */
 @media (max-width: 480px) {
