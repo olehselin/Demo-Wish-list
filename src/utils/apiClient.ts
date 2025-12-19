@@ -20,6 +20,30 @@ const buildUrl = (
   endpoint: string,
   params?: Record<string, string>
 ): string => {
+  // If endpoint is already a full URL, use it directly
+  if (endpoint.startsWith('http://') || endpoint.startsWith('https://')) {
+    const url = new URL(endpoint);
+    if (params) {
+      Object.entries(params).forEach(([key, value]) => {
+        url.searchParams.append(key, value);
+      });
+    }
+    return url.toString();
+  }
+
+  // If API_BASE_URL is empty, use relative URL
+  if (!API_BASE_URL) {
+    const url = new URL(endpoint, window.location.origin);
+    if (params) {
+      Object.entries(params).forEach(([key, value]) => {
+        url.searchParams.append(key, value);
+      });
+    }
+    return url.pathname + url.search;
+  }
+
+  // Use API_BASE_URL as base
+  // API_BASE_URL already includes /api, so use it directly
   const url = new URL(endpoint, API_BASE_URL);
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
@@ -40,6 +64,7 @@ const handleResponse = async <T>(response: Response): Promise<T> => {
 export const apiClient = {
   get: async <T>(endpoint: string, options?: RequestOptions): Promise<T> => {
     const url = buildUrl(endpoint, options?.params);
+
     const response = await fetch(url, {
       ...options,
       method: 'GET',

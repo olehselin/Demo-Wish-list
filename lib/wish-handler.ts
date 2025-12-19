@@ -1,6 +1,15 @@
-import type { Wish } from '../src/services/api';
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
+
+// Define Wish type locally to avoid import issues
+export interface Wish {
+  id: string;
+  image: string;
+  title: string;
+  description: string;
+  price: number;
+  createdAt?: string;
+}
 
 // File path for data (read-only in serverless)
 const DATA_FILE = join(process.cwd(), 'db.json');

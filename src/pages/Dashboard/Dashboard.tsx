@@ -16,8 +16,6 @@ import { sortWishes } from '../../utils/sorting';
 const Dashboard = () => {
   const { wishes, loading, loadWishes, removeWish } = useWishContext();
 
-  console.log(wishes);
-
   const [wishToDelete, setWishToDelete] = useState<Wish | null>(null);
   const [wishToUpdate, setWishToUpdate] = useState<Wish | null>(null);
 

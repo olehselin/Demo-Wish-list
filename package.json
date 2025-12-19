@@ -9,7 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "format": "npx prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md,html}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md,html}\""
   },
   "dependencies": {
     "@vercel/node": "^3.0.0",

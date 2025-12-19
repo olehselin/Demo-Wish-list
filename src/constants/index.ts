@@ -1,8 +1,8 @@
-// In production, use relative URLs to call Vercel API routes
+// In production, use Vercel API URL from environment variable
 // In development, use the json-server URL
 export const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
-  (import.meta.env.PROD ? '' : 'http://localhost:3000');
+  (import.meta.env.PROD ? 'https://with-list-api.vercel.app/api' : 'http://localhost:3000');
 
 export const PAGINATION = {
   ITEMS_PER_PAGE: 12,
